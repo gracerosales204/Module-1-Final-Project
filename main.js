@@ -19,18 +19,50 @@ export var newsList = [
 export function search() {
   //inputValue is the variable that contains the search string
   const inputValue = document.getElementById("search-input").value;
-
+  
   //Write your code here for the search function
+    const searchResults = [];
 
-  return newsList;
+    for (let i=0; i<newsList.length; i++) {
+      
+      if (newsList[i].toLowerCase().includes(inputValue.toLowerCase()))
+          {
+            searchResults.push(newsList[i]);
+            console.log(searchResults);
+        
+      } else{
+        console.log ("Not found");
+      }
+      }
+    return searchResults   
 }
 
 export function sort(type) {
   if (type == "ascending") {
     //Write your code here for sorting (ascending)
+    newsList.sort()
+    console.log(newsList);
   } else {
     //Write your code here for sorting (descending)
+    newsList.reverse()
+    console.log(newsList);
   }
 
   return newsList;
+}
+
+//for unit testing
+export function newSearch(input){
+  const searchResults = [];
+    for (let i=0; i<newsList.length; i++) {
+            if (newsList[i].toLowerCase().includes(input.toLowerCase()))
+          {
+            searchResults.push(newsList[i]);
+            console.log(searchResults);
+        
+      } else{
+        console.log ("Not found");
+      }
+      }
+    return searchResults   
 }
